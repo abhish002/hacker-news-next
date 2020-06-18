@@ -1,13 +1,14 @@
 import fetch from 'isomorphic-unfetch';
 import Error from 'next/error';
 import Layout from '../components/layout/layout.component';
+import CommentList from '../components/comment-list/comment-list.component';
 
 function Story({ story }) {
   if (!story) {
     return <Error statusCode='503' />
   }
 
-  const { title, url, points, comments_count, time_ago } = story;
+  const { title, url, points, comments_count, time_ago, comments } = story;
 
   return (
     <Layout title={title}>
@@ -20,6 +21,11 @@ function Story({ story }) {
           <strong>{comments_count} comments</strong>
           <strong>{time_ago}</strong>
         </div>
+        {
+          comments.length > 0 ?
+            <CommentList comments={comments} /> :
+            <div>No comments for this story.</div>
+        }
       </main>
       <style jsx>{`
         main {
