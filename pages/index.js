@@ -26,7 +26,7 @@ class Index extends React.Component {
       :
       (
         <div>
-          <Layout title='Hacker Next' description='A news app built with next.js'>
+          <Layout title='Hacker Next' description='A news app built with next.js' backButton={page > 1 ? true : false}>
             <StoryList stories={stories} />
           </Layout>
           <footer>

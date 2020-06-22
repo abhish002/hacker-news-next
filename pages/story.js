@@ -11,7 +11,7 @@ function Story({ story }) {
   const { title, url, points, comments_count, time_ago, comments } = story;
 
   return (
-    <Layout title={title}>
+    <Layout title={title} backButton={true}>
       <main>
         <h1 className='story-title'>
           <a href={url} target='_blank'>{title}</a>

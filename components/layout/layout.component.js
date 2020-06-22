@@ -1,8 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
+import Router from 'next/router';
 
-export const Layout = ({ children, title = '', description }) => {
+const Layout = ({ children, title = '', description, backButton }) => {    
     return (
         <div className='container'>
             <Head>
@@ -10,6 +11,7 @@ export const Layout = ({ children, title = '', description }) => {
                 <meta name='description' content={description} />
             </Head>
             <nav>
+                {backButton && <span className='back-button' onClick={() => Router.back()}>&#x2b05;</span>}
                 <Link href='/'>
                     <a><span className='main-title'>Hacker News</span></a>
                 </Link>
@@ -31,6 +33,11 @@ export const Layout = ({ children, title = '', description }) => {
                 }
                 nav a {
                     text-decoration: none;
+                }
+                nav .back-button {
+                    font-size: 0.9rem;
+                    padding-right: 1em;
+                    cursor: pointer;
                 }
                 .main-title {
                     font-weight: bold;
