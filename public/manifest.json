@@ -2,6 +2,7 @@
     "name": "Hacker News Next",
     "short_name": "hacker-news",
     "lang": "en-US",
+    "scope": "/",
     "start_url": "/",
     "display": "standalone",
     "theme_color": "#f60",

@@ -19,6 +19,16 @@ class Index extends React.Component {
     return { stories, page }
   }
 
+  componentDidMount() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('service worker registration successful', registration)
+        })
+        .catch(e => console.warn('service registration failed.', e.message))
+    }
+  }
+
   render() {
     const { stories, page } = this.props;
     return stories.length === 0 ?
